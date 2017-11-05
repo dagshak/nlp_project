@@ -1,6 +1,6 @@
 #!/bin/sh
 #SBATCH --job-name=in_too_deep_preprocessor
-#SBATCH --output=slurm.out
+#SBATCH --output=slurm_%j.out
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
 #SBATCH --time=2:50:00
@@ -17,8 +17,8 @@ fp_train="data/snli_preprocess/train.hdf5"
 fp_dev="data/snli_preprocess/val.hdf5"
 fp_test="data/snli_preprocess/test.hdf5"
 fp_w2v="data/snli_preprocess/glove.hdf5"
-fp_log="SNLI-decomposable-attention-master/log/"
-fp_model="SNLI-decomposable-attention-master/model_output/"
+fp_log="log/"
+fp_model="model_output/"
 fp_code="code/train_baseline_snli.py"
 
 python "$fp$fp_code" \
